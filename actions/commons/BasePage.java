@@ -110,7 +110,7 @@ public class BasePage {
 		driver.navigate().back();
 	}
 
-	protected void refreshCurrentPage(WebDriver driver) {
+	public void refreshCurrentPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
 

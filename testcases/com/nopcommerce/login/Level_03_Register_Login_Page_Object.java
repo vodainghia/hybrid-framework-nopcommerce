@@ -22,7 +22,7 @@ public class Level_03_Register_Login_Page_Object {
 	String projectLocation = System.getProperty("user.dir");
 	
 	@BeforeClass
-	public void beforeClass() {
+	public void initBrowser() {
 		System.setProperty("webdriver.gecko.driver", projectLocation + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -97,7 +97,7 @@ public class Level_03_Register_Login_Page_Object {
 	}
 
 	@AfterClass
-	public void afterClass() {
+	public void cleanBrowser() {
 		driver.quit();
 	}
 	
