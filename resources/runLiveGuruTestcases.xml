@@ -16,8 +16,8 @@
 		</classes>
 	</test>
 
-	<test name="Run on MICROSOFT EDGE">
-		<parameter name="browser" value="msedge" />
+	<test name="Run on EDGE CHROMIUM">
+		<parameter name="browser" value="edge_chromium" />
 		<classes>
 			<class name="com.liveguru.login.Level_04_Register_Login_Multiple_Browser" />
 		</classes>
