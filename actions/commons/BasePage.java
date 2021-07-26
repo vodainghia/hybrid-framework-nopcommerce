@@ -98,7 +98,7 @@ public class BasePage {
 		}
 	}
 
-	protected void sleepInSecond(long second) {
+	public void sleepInSecond(long second) {
 		try {
 			Thread.sleep(second * 1000);
 		} catch (InterruptedException e) {
@@ -286,6 +286,7 @@ public class BasePage {
 	protected void scrollToElement(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", getElement(driver, locator));
+		sleepInSecond(1);
 	}
 
 	protected void sendkeyToElementByJS(WebDriver driver, String locator, String value) {

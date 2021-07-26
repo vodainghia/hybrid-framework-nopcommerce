@@ -1,7 +1,5 @@
 package com.liveguru.login;
 
-import java.util.Random;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -89,11 +87,6 @@ public class Level_04_Register_Login_Multiple_Browser extends BaseTest {
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
-	}
-
-	public String getRandomEmail() {
-		Random rand = new Random();
-		return "testing" + rand.nextInt(99999) + "@live.com";
 	}
 
 	HomePageObject homePage;
