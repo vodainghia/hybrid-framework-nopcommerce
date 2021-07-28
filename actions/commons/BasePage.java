@@ -15,11 +15,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.OrderPageObject;
+import pageObjects.nopCommerce.PageGeneratorManager;
+import pageObjects.nopCommerce.SearchPageObject;
+import pageUIs.nopCommerce.BasePageUI;
+
 public class BasePage {
 	public static BasePage getBasePage() {
 		return new BasePage();
 	}
-	
+
 	protected void openPageUrl(WebDriver driver, String pageUrl) {
 		driver.get(pageUrl);
 	}
@@ -201,48 +207,48 @@ public class BasePage {
 	protected boolean isElementDisplayed(WebDriver driver, String locator) {
 		return getElement(driver, locator).isDisplayed();
 	}
-	
+
 	protected boolean isElementEnabled(WebDriver driver, String locator) {
 		return getElement(driver, locator).isEnabled();
 	}
-	
+
 	protected boolean isElementSelected(WebDriver driver, String locator) {
 		return getElement(driver, locator).isSelected();
 	}
-	
+
 	protected WebDriver switchToIFrameByElement(WebDriver driver, String locator) {
 		return driver.switchTo().frame(getElement(driver, locator));
 	}
-	
+
 	protected WebDriver switchToDefaultContent(WebDriver driver) {
 		return driver.switchTo().defaultContent();
 	}
-	
+
 	protected void hoverToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.moveToElement(getElement(driver, locator)).perform();
 	}
-	
+
 	protected void doubleClickToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.doubleClick(getElement(driver, locator)).perform();
 	}
-	
+
 	protected void rightClickToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.contextClick(getElement(driver, locator)).perform();
 	}
-	
+
 	protected void dragAndDropElement(WebDriver driver, String sourceLocator, String targetLocator) {
 		action = new Actions(driver);
 		action.dragAndDrop(getElement(driver, sourceLocator), getElement(driver, targetLocator)).perform();
 	}
-	
+
 	protected void pressKeyToElement(WebDriver driver, String locator, Keys key) {
 		action = new Actions(driver);
 		action.sendKeys(getElement(driver, locator), key).perform();
 	}
-	
+
 	protected Object executeForBrowser(WebDriver driver, String javaScript) {
 		jsExecutor = (JavascriptExecutor) driver;
 		return jsExecutor.executeScript(javaScript);
@@ -335,27 +341,45 @@ public class BasePage {
 			return false;
 		}
 	}
-	
+
 	protected void waitForElementVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
 	}
-	
+
 	protected void waitForAllElementVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(locator)));
 	}
-	
+
 	protected void waitForElementClickable(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
 	}
-	
+
 	protected void waitForElementInvisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
 	}
-	
+
+	public SearchPageObject openSearchPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.SEARCH_PAGE_FOOTER);
+		clickToElement(driver, BasePageUI.SEARCH_PAGE_FOOTER);
+		return PageGeneratorManager.getSearchPage(driver);
+	}
+
+	public MyAccountPageObject openMyAccountPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.MY_ACCOUNT_PAGE_FOOTER);
+		clickToElement(driver, BasePageUI.MY_ACCOUNT_PAGE_FOOTER);
+		return PageGeneratorManager.getMyAccountPage(driver);
+	}
+
+	public OrderPageObject openOrderPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.ORDER_PAGE_FOOTER);
+		clickToElement(driver, BasePageUI.ORDER_PAGE_FOOTER);
+		return PageGeneratorManager.getOrderPage(driver);
+	}
+
 	private Alert alert;
 	private Select select;
 	private Actions action;
