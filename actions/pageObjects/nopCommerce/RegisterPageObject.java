@@ -11,6 +11,11 @@ public class RegisterPageObject extends BasePage {
 	public RegisterPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	public boolean isRegisterPageTitleDisplayed() {
+		waitForElementVisible(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
+		return isElementDisplayed(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
+	}
 
 	public void clickToGenderMaleRadioButton() {
 		waitForElementClickable(driver, RegisterPageUI.GENDER_MALE_RADIO);
@@ -52,11 +57,36 @@ public class RegisterPageObject extends BasePage {
 		waitForElementVisible(driver, RegisterPageUI.SUCCESS_MESSAGE);
 		return isElementDisplayed(driver, RegisterPageUI.SUCCESS_MESSAGE);
 	}
-
-	public HomePageObject clickToLogoutLink() {
-		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
-		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);
-		return PageGeneratorManager.getHomePage(driver);
+	
+	public String getFirstnameErrorMessage() {
+		waitForElementVisible(driver, RegisterPageUI.FIRSTNAME_ERROR_MESSAGE);
+		return getElementText(driver, RegisterPageUI.FIRSTNAME_ERROR_MESSAGE);
 	}
+	
+	public String getLastnameErrorMessage() {
+		waitForElementVisible(driver, RegisterPageUI.LASTNAME_ERROR_MESSAGE);
+		return getElementText(driver, RegisterPageUI.LASTNAME_ERROR_MESSAGE);
+	}
+	
+	public String getEmailErrorMessage() {
+		waitForElementVisible(driver, RegisterPageUI.EMAIL_ERROR_MESSAGE);
+		return getElementText(driver, RegisterPageUI.EMAIL_ERROR_MESSAGE);
+	}
+	
+	public String getExistingEmailErrorMessage() {
+		waitForElementVisible(driver, RegisterPageUI.EXISTING_EMAIL_ERROR_MESSAGE);
+		return getElementText(driver, RegisterPageUI.EXISTING_EMAIL_ERROR_MESSAGE);
+	}
+	
+	public String getPasswordErrorMessage() {
+		waitForElementVisible(driver, RegisterPageUI.PASSWORD_ERROR_MESSAGE);
+		return getElementText(driver, RegisterPageUI.PASSWORD_ERROR_MESSAGE);
+	}
+	
+	public String getConfirmErrorMessage() {
+		waitForElementVisible(driver, RegisterPageUI.CONFIRM_ERROR_MESSAGE);
+		return getElementText(driver, RegisterPageUI.CONFIRM_ERROR_MESSAGE);
+	}
+	
 
 }

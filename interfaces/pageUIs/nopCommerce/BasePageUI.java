@@ -8,4 +8,5 @@ public class BasePageUI {
 	
 	// 1 locator (dynamic) for many pages
 	public static final String DYNAMIC_PAGE_FOOTER = "//div[@class='footer']//a[text()='%s']";
+	public static final String DYNAMIC_PAGE_HEADER = "//div[@class='header']//a[text()='%s']";
 }

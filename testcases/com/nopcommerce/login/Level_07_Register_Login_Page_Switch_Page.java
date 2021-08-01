@@ -37,7 +37,7 @@ public class Level_07_Register_Login_Page_Switch_Page extends BaseTest {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
 		
-		registerPage = homePage.clickToRegisterLink();
+		//registerPage = homePage.clickToRegisterLink();
 		registerPage.clickToGenderMaleRadioButton();
 		registerPage.enterToFirstnameTextbox("John");
 		registerPage.enterToLastnameTextbox("Wick");
@@ -47,13 +47,13 @@ public class Level_07_Register_Login_Page_Switch_Page extends BaseTest {
 		registerPage.clickToRegisterButton();
 		Assert.assertTrue(registerPage.isSuccessMessageDisplayed());
 		
-		homePage = registerPage.clickToLogoutLink();
+		//homePage = registerPage.clickToLogoutLink();
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
 	}
 
 	@Test
 	public void Login_02_Login_To_System() {
-		loginPage = homePage.clickToLoginLink();
+		//loginPage = homePage.clickToLoginLink();
 		loginPage.enterToEmailTextbox(emailPassword);
 		loginPage.enterToPasswordTextbox(password);
 		homePage = loginPage.clickToLoginButton();

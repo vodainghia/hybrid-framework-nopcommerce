@@ -29,4 +29,24 @@ public class LoginPageObject extends BasePage {
 		return PageGeneratorManager.getHomePage(driver);
 	}
 
+	public boolean isLoginPageTitleDisplayed() {
+		waitForElementVisible(driver, LoginPageUI.LOGIN_PAGE_TITLE);
+		return isElementDisplayed(driver, LoginPageUI.LOGIN_PAGE_TITLE);
+	}
+
+	public String getEmailErrorMessage() {
+		waitForElementVisible(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
+		return getElementText(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
+	}
+
+	public String getValidateErrorMessage() {
+		waitForElementVisible(driver, LoginPageUI.VALIDATE_ERROR_MESSAGE);
+		return getElementText(driver, LoginPageUI.VALIDATE_ERROR_MESSAGE);
+	}
+
+	public boolean isLoginPageSliderDisplayed() {
+		waitForElementVisible(driver, LoginPageUI.LOGIN_PAGE_SLIDER);
+		return isElementDisplayed(driver, LoginPageUI.LOGIN_PAGE_SLIDER);
+	}
+
 }

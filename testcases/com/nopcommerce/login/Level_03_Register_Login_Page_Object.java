@@ -41,7 +41,7 @@ public class Level_03_Register_Login_Page_Object {
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
 		
 		// step 3: Click to Register link -> Register page
-		homePage.clickToRegisterLink();
+		//homePage.clickToRegisterLink();
 		registerPage = new RegisterPageObject(driver);
 		
 		// step 4: Click to Gender male radio
@@ -69,7 +69,7 @@ public class Level_03_Register_Login_Page_Object {
 		Assert.assertTrue(registerPage.isSuccessMessageDisplayed());
 		
 		// step 12: Click to Logout link -> Home page
-		registerPage.clickToLogoutLink();
+		//registerPage.clickToLogoutLink();
 		homePage = new HomePageObject(driver);
 		
 		// step 13: Verify Home page slider displayed
@@ -79,7 +79,7 @@ public class Level_03_Register_Login_Page_Object {
 	@Test
 	public void Login_02_Login_To_System() {
 		// step 1: Click to Login link
-		homePage.clickToLoginLink();
+		//homePage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);
 		
 		// step 2: Input to Email texbox

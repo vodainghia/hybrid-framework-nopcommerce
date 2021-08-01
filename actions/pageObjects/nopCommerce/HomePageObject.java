@@ -22,16 +22,5 @@ public class HomePageObject extends BasePage {
 		return isElementDisplayed(driver, HomePageUI.HOMEPAGE_SLIDER);
 	}
 
-	public RegisterPageObject clickToRegisterLink() {
-		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
-		clickToElement(driver, HomePageUI.REGISTER_LINK);
-		return PageGeneratorManager.getRegisterPage(driver);
-	}
-
-	public LoginPageObject clickToLoginLink() {
-		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
-		clickToElement(driver, HomePageUI.LOGIN_LINK);
-		return PageGeneratorManager.getLoginPage(driver);
-	}
 
 }
