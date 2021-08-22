@@ -27,7 +27,7 @@ public class Login extends BaseTest {
 	@BeforeClass
 	public void beforeClass(String browserName, String appUrl) {
 		driver = getBrowserDriver(browserName, appUrl);
-		System.out.println("before class driver: " + driver.toString());
+		
 		email = getRandomEmail();
 		password = "123456";
 	}

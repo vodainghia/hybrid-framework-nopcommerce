@@ -13,11 +13,13 @@ public class RegisterPageObject extends BasePage {
 	}
 	
 	public boolean isRegisterPageTitleDisplayed() {
+		scrollToElement(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
 		waitForElementVisible(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
 		return isElementDisplayed(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
 	}
 
 	public void clickToGenderMaleRadioButton() {
+		scrollToElement(driver, RegisterPageUI.GENDER_MALE_RADIO);
 		waitForElementClickable(driver, RegisterPageUI.GENDER_MALE_RADIO);
 		clickToElement(driver, RegisterPageUI.GENDER_MALE_RADIO);
 	}
@@ -87,6 +89,6 @@ public class RegisterPageObject extends BasePage {
 		waitForElementVisible(driver, RegisterPageUI.CONFIRM_ERROR_MESSAGE);
 		return getElementText(driver, RegisterPageUI.CONFIRM_ERROR_MESSAGE);
 	}
-	
+
 
 }

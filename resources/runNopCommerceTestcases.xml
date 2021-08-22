@@ -5,8 +5,7 @@
 	<test name="Run on FIREFOX">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.login.Register" />
-			<class name="com.nopcommerce.login.Login" />
+			<class name="com.nopcommerce.login.My_Account" />
 		</classes>
 	</test>
 </suite>

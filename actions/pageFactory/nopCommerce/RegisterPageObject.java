@@ -20,7 +20,7 @@ public class RegisterPageObject extends BasePageFactory {
 	WebElement lastNameTextbox;
 	
 	@FindBy(id = "Email")
-	WebElement emailtextbox;
+	WebElement emailTextbox;
 	
 	@FindBy(id = "Password")
 	WebElement passwordTextbox;
@@ -58,8 +58,8 @@ public class RegisterPageObject extends BasePageFactory {
 	}
 
 	public void enterToEmailTextbox(String emailAddress) {
-		waitForElementVisible(driver, emailtextbox);
-		sendkeyToElement(driver, emailtextbox, emailAddress);
+		waitForElementVisible(driver, emailTextbox);
+		sendkeyToElement(driver, emailTextbox, emailAddress);
 	}
 
 	public void enterToPasswordTextbox(String password) {

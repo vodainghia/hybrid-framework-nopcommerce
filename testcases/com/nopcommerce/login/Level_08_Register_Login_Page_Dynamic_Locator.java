@@ -20,14 +20,14 @@ import pageObjects.nopCommerce.SearchPageObject;
 public class Level_08_Register_Login_Page_Dynamic_Locator extends BaseTest {
 	WebDriver driver;
 	BasePage basePage;
-	String emailPassword, password;
+	String email, password;
 	
 	@Parameters({"browser", "url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String appUrl) {
 		driver = getBrowserDriver(browserName, appUrl);
 		
-		emailPassword = getRandomEmail();
+		email = getRandomEmail();
 		password = "123456";
 		
 	}
@@ -41,7 +41,7 @@ public class Level_08_Register_Login_Page_Dynamic_Locator extends BaseTest {
 		registerPage.clickToGenderMaleRadioButton();
 		registerPage.enterToFirstnameTextbox("John");
 		registerPage.enterToLastnameTextbox("Wick");
-		registerPage.enterToEmailTextbox(emailPassword);
+		registerPage.enterToEmailTextbox(email);
 		registerPage.enterToPasswordTextbox(password);
 		registerPage.enterToConfirmPasswordTextbox(password);
 		registerPage.clickToRegisterButton();
@@ -54,7 +54,7 @@ public class Level_08_Register_Login_Page_Dynamic_Locator extends BaseTest {
 	@Test
 	public void Login_02_Login_To_System() {
 		//loginPage = homePage.clickToLoginLink();
-		loginPage.enterToEmailTextbox(emailPassword);
+		loginPage.enterToEmailTextbox(email);
 		loginPage.enterToPasswordTextbox(password);
 		homePage = loginPage.clickToLoginButton();
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());

@@ -9,4 +9,9 @@ public class BasePageUI {
 	// 1 locator (dynamic) for many pages
 	public static final String DYNAMIC_PAGE_FOOTER = "//div[@class='footer']//a[text()='%s']";
 	public static final String DYNAMIC_PAGE_HEADER = "//div[@class='header']//a[text()='%s']";
+
+	public static final String DYNAMIC_MENU_NAME = "//div[@class='header-menu']//a[text()='%s']";
+	public static final String DYNAMIC_MENU_SUBLIST_DESKTOP = "//div[@class='header-menu']/ul[contains(@class,'notmobile')]//a[text()='%s']";
+	public static final String DYNAMIC_PRODUCT_TITLE = "//h2[@class='product-title']/a[text()='%s']";
+
 }

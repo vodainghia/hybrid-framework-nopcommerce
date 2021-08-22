@@ -18,4 +18,5 @@ public class RegisterPageUI {
 	public static final String EXISTING_EMAIL_ERROR_MESSAGE = "//div[@class='page-body']//li";
 	
 	public static final String REGISTER_PAGE_TITLE = "//div[@class='page-title']/h1[text()='Register']";
+	
 }

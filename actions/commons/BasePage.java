@@ -104,14 +104,6 @@ public class BasePage {
 		}
 	}
 
-	public void sleepInSecond(long second) {
-		try {
-			Thread.sleep(second * 1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public void backToPage(WebDriver driver) {
 		driver.navigate().back();
 	}
@@ -249,6 +241,11 @@ public class BasePage {
 	public void hoverToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.moveToElement(getElement(driver, locator)).perform();
+	}
+
+	public void hoverToElement(WebDriver driver, String locator, String... params) {
+		action = new Actions(driver);
+		action.moveToElement(getElement(driver, getDynamicLocator(locator, params))).perform();
 	}
 
 	public void doubleClickToElement(WebDriver driver, String locator) {
@@ -442,12 +439,34 @@ public class BasePage {
 		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_HEADER, pageName);
 		clickToElement(driver, BasePageUI.DYNAMIC_PAGE_HEADER, pageName);
 	}
-	
+
+	public void hoverToTopMenuByName(WebDriver driver, String menuName) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_MENU_NAME, menuName);
+		hoverToElement(driver, BasePageUI.DYNAMIC_MENU_NAME, menuName);
+	}
+
+	public void clickToMenuSublist(WebDriver driver, String menuSublistName) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_MENU_SUBLIST_DESKTOP, menuSublistName);
+		clickToElement(driver, BasePageUI.DYNAMIC_MENU_SUBLIST_DESKTOP, menuSublistName);
+	}
+	public void clickToProductTitle(WebDriver driver, String productTitle) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
+		clickToElement(driver, BasePageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
+	}
+
+	public void sleepInSecond(long second) {
+		try {
+			Thread.sleep(second * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 	private Alert alert;
 	private Select select;
 	private Actions action;
 	private long shortTimeout = GlobalContants.SHORT_TIMEOUT;
-	private long longTimeout = GlobalContants.LONG_TIMEOUT;
+	//private long longTimeout = GlobalContants.LONG_TIMEOUT;
 	private WebDriverWait explicitWait;
 	private JavascriptExecutor jsExecutor;
 }

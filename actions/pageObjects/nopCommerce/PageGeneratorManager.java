@@ -15,11 +15,9 @@ public class PageGeneratorManager {
 	}
 
 	public static HomePageObject getHomePage(WebDriver driver) {
-		System.out.println("homepage driver: " + driver.toString());
 		if (homePage == null) {
 			homePage = new HomePageObject(driver);
 		}
-		System.out.println("homepage obj: " + homePage.toString());
 		return homePage;
 	}
 
