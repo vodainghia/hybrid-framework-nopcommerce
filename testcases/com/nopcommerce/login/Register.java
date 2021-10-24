@@ -7,19 +7,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import commons.BasePage;
 import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.MyAccountPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Register extends BaseTest {
 	WebDriver driver;
-	BasePage basePage;
 	HomePageObject homePage;
 	RegisterPageObject registerPage;
-	MyAccountPageObject myAccountPage;
 
 	String email, password;
 

@@ -10,9 +10,7 @@ public class PageGeneratorManager {
 	private static MyAccountPageObject myAccountPage;
 	private static OrderPageObject orderPage;
 
-	private PageGeneratorManager() {
-
-	}
+	private PageGeneratorManager() { }
 
 	public static HomePageObject getHomePage(WebDriver driver) {
 		if (homePage == null) {

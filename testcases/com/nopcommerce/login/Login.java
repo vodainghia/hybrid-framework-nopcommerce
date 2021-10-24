@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import commons.BasePage;
 import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
@@ -16,7 +15,6 @@ import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Login extends BaseTest {
 	WebDriver driver;
-	BasePage basePage;
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
