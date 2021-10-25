@@ -1,6 +1,6 @@
 package pageUIs.nopCommerce;
 
-public class OrderPageUI {
+public class ProductPageUI {
     public static final String ADD_YOUR_REVIEW_LINK = "//div[@class='product-review-links']/a[text()='Add your review']";
     public static final String PRODUCT_REVIEW_PAGE_TITLE = "//div[@class='page-title']/h1";
     public static final String PRODUCT_REVIEW_REVIEW_TITLE_TEXTBOX = "//input[@id='AddProductReview_Title']";
@@ -23,4 +23,12 @@ public class OrderPageUI {
     public static final String ADVANCED_SEARCH_CHECKBOX = "//input[@id='advs']";
     public static final String AUTOMATICALLY_SEARCH_SUB_CATEGORIES_CHECKBOX = "//input[@id='isc']";
     public static final String MANUFACTURER_DROPDOWN = "//select[@id='mid']";
+    public static final String SORT_BY_DROPDOWN = "//select[@id='products-orderby']";
+    public static final String ITEM_BOX_TEXT = "//div[@class='item-box']//h2/a";
+    public static final String ITEM_BOX_PRICE = "//div[@class='item-box']//span";
+    public static final String PAGE_SIZE_DROPDOWN = "//select[@id='products-pagesize']";
+    public static final String CURRENT_PAGE_BUTTON = "//li[@class='current-page']/span";
+    public static final String NEXT_PAGE_BUTTON = "//li[@class='next-page']";
+    public static final String PREVIOUS_PAGE_BUTTON = "//li[@class='previous-page']";
+    public static final String PAGING = "//div[@class='pager']";
 }

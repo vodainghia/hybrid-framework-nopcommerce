@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageObjects.nopCommerce.MyAccountPageObject;
-import pageObjects.nopCommerce.OrderPageObject;
+import pageObjects.nopCommerce.ProductPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.SearchPageObject;
 import pageUIs.nopCommerce.BasePageUI;
@@ -231,6 +231,14 @@ public class BasePage {
         return getElement(driver, getDynamicLocator(locator, params)).isDisplayed();
     }
 
+    public boolean isElementUnDisplayed(WebDriver driver, String locator) {
+        try {
+            return !isElementDisplayed(driver, locator);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return true;
+        }
+    }
+
     public boolean isElementEnabled(WebDriver driver, String locator) {
         return getElement(driver, locator).isEnabled();
     }
@@ -412,10 +420,10 @@ public class BasePage {
         return PageGeneratorManager.getMyAccountPage(driver);
     }
 
-    public OrderPageObject openOrderPage(WebDriver driver) {
+    public ProductPageObject openOrderPage(WebDriver driver) {
         waitForElementClickable(driver, BasePageUI.ORDER_PAGE_FOOTER);
         clickToElement(driver, BasePageUI.ORDER_PAGE_FOOTER);
-        return PageGeneratorManager.getOrderPage(driver);
+        return PageGeneratorManager.getProductPage(driver);
     }
 
     // Option 1: less than 10 pages
@@ -429,7 +437,7 @@ public class BasePage {
             case "My account":
                 return PageGeneratorManager.getMyAccountPage(driver);
             default:
-                return PageGeneratorManager.getOrderPage(driver);
+                return PageGeneratorManager.getProductPage(driver);
         }
     }
 
@@ -445,13 +453,13 @@ public class BasePage {
     }
 
     public void hoverToTopMenuByName(WebDriver driver, String menuName) {
-        waitForElementClickable(driver, BasePageUI.DYNAMIC_MENU_NAME, menuName);
-        hoverToElement(driver, BasePageUI.DYNAMIC_MENU_NAME, menuName);
+        waitForElementClickable(driver, BasePageUI.DYNAMIC_TOP_MENU, menuName);
+        hoverToElement(driver, BasePageUI.DYNAMIC_TOP_MENU, menuName);
     }
 
     public void clickToMenuSublist(WebDriver driver, String menuSublistName) {
-        waitForElementClickable(driver, BasePageUI.DYNAMIC_MENU_SUBLIST_DESKTOP, menuSublistName);
-        clickToElement(driver, BasePageUI.DYNAMIC_MENU_SUBLIST_DESKTOP, menuSublistName);
+        waitForElementClickable(driver, BasePageUI.DYNAMIC_TOP_MENU_SUBLIST, menuSublistName);
+        clickToElement(driver, BasePageUI.DYNAMIC_TOP_MENU_SUBLIST, menuSublistName);
     }
 
     public void clickToProductTitle(WebDriver driver, String productTitle) {

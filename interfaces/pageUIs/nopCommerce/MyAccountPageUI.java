@@ -22,8 +22,8 @@ public class MyAccountPageUI {
 	public static final String ADDRESSES_COUNTRY_DROPDOWN = "//select[@id='Address_CountryId']";
 	public static final String ADDRESSES_STATE_PROVINCE_DROPDOWN = "//select[@id='Address_StateProvinceId']";
 	public static final String ADDRESSES_CITY_TEXTBOX = "//input[@id='Address_City']";
-	public static final String ADDRESSES_ADDRESS1_TEXTBOX = "//input[@id='Address_Address1']";
-	public static final String ADDRESSES_ADDRESS2_TEXTBOX = "//input[@id='Address_Address2']";
+	public static final String ADDRESSES_ADDRESS_1_TEXTBOX = "//input[@id='Address_Address1']";
+	public static final String ADDRESSES_ADDRESS_2_TEXTBOX = "//input[@id='Address_Address2']";
 	public static final String ADDRESSES_ZIP_POSTALCODE_TEXTBOX = "//input[@id='Address_ZipPostalCode']";
 	public static final String ADDRESSES_PHONE_NUMBER_TEXTBOX = "//input[@id='Address_PhoneNumber']";
 	public static final String ADDRESSES_FAX_NUMBER_TEXTBOX = "//input[@id='Address_FaxNumber']";

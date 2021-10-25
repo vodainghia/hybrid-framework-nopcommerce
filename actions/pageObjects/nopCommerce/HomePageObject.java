@@ -22,5 +22,4 @@ public class HomePageObject extends BasePage {
 		return isElementDisplayed(driver, HomePageUI.HOMEPAGE_SLIDER);
 	}
 
-
 }

@@ -8,7 +8,7 @@ public class PageGeneratorManager {
 	private static RegisterPageObject registerPage;
 	private static SearchPageObject searchPage;
 	private static MyAccountPageObject myAccountPage;
-	private static OrderPageObject orderPage;
+	private static ProductPageObject productPage;
 
 	private PageGeneratorManager() { }
 
@@ -47,11 +47,11 @@ public class PageGeneratorManager {
 		return myAccountPage;
 	}
 
-	public static OrderPageObject getOrderPage(WebDriver driver) {
-		if (orderPage == null) {
-			orderPage = new OrderPageObject(driver);
+	public static ProductPageObject getProductPage(WebDriver driver) {
+		if (productPage == null) {
+			productPage = new ProductPageObject(driver);
 		}
-		return orderPage;
+		return productPage;
 	}
 
 }

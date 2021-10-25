@@ -12,7 +12,7 @@ import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
 import pageObjects.nopCommerce.MyAccountPageObject;
-import pageObjects.nopCommerce.OrderPageObject;
+import pageObjects.nopCommerce.ProductPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.RegisterPageObject;
 import pageObjects.nopCommerce.SearchPageObject;
@@ -91,5 +91,5 @@ public class Level_07_Register_Login_Page_Switch_Page extends BaseTest {
 	RegisterPageObject registerPage;
 	SearchPageObject searchPage;
 	MyAccountPageObject myAccountPage;
-	OrderPageObject orderPage;
+	ProductPageObject orderPage;
 }

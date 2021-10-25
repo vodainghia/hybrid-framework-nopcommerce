@@ -164,13 +164,13 @@ public class MyAccountPageObject extends BasePage {
     }
 
     public void enterToAddress1TextboxInAddresses(String address1) {
-        waitForElementVisible(driver, MyAccountPageUI.ADDRESSES_ADDRESS1_TEXTBOX);
-        sendkeyToElement(driver, MyAccountPageUI.ADDRESSES_ADDRESS1_TEXTBOX, address1);
+        waitForElementVisible(driver, MyAccountPageUI.ADDRESSES_ADDRESS_1_TEXTBOX);
+        sendkeyToElement(driver, MyAccountPageUI.ADDRESSES_ADDRESS_1_TEXTBOX, address1);
     }
 
     public void enterToAddress2TextboxInAddresses(String address2) {
-        waitForElementVisible(driver, MyAccountPageUI.ADDRESSES_ADDRESS2_TEXTBOX);
-        sendkeyToElement(driver, MyAccountPageUI.ADDRESSES_ADDRESS2_TEXTBOX, address2);
+        waitForElementVisible(driver, MyAccountPageUI.ADDRESSES_ADDRESS_2_TEXTBOX);
+        sendkeyToElement(driver, MyAccountPageUI.ADDRESSES_ADDRESS_2_TEXTBOX, address2);
     }
 
     public void enterToZipPostalCodeTextboxInAddresses(String postalCode) {

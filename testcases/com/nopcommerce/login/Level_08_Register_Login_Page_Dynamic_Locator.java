@@ -12,7 +12,7 @@ import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
 import pageObjects.nopCommerce.MyAccountPageObject;
-import pageObjects.nopCommerce.OrderPageObject;
+import pageObjects.nopCommerce.ProductPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.RegisterPageObject;
 import pageObjects.nopCommerce.SearchPageObject;
@@ -70,7 +70,7 @@ public class Level_08_Register_Login_Page_Dynamic_Locator extends BaseTest {
 		myAccountPage = (MyAccountPageObject) searchPage.getFooterPageByName(driver, "My account");
 		
 		// My Account page -> Order page
-		orderPage = (OrderPageObject) myAccountPage.getFooterPageByName(driver, "Orders");
+		orderPage = (ProductPageObject) myAccountPage.getFooterPageByName(driver, "Orders");
 		
 		// Order page -> My Account page
 		myAccountPage = (MyAccountPageObject) orderPage.getFooterPageByName(driver, "My account");
@@ -79,7 +79,7 @@ public class Level_08_Register_Login_Page_Dynamic_Locator extends BaseTest {
 		searchPage = (SearchPageObject) myAccountPage.getFooterPageByName(driver, "Search");
 		
 		// Search page -> Order page
-		orderPage = (OrderPageObject) searchPage.getFooterPageByName(driver, "Orders");
+		orderPage = (ProductPageObject) searchPage.getFooterPageByName(driver, "Orders");
 	}
 	
 	// Option 2: Multiple pages
@@ -95,7 +95,7 @@ public class Level_08_Register_Login_Page_Dynamic_Locator extends BaseTest {
 		
 		// Search page -> Order page
 		searchPage.openFooterPageByName(driver, "Orders");
-		orderPage = PageGeneratorManager.getOrderPage(driver);
+		orderPage = PageGeneratorManager.getProductPage(driver);
 	}
 
 	@AfterClass
@@ -108,5 +108,5 @@ public class Level_08_Register_Login_Page_Dynamic_Locator extends BaseTest {
 	RegisterPageObject registerPage;
 	SearchPageObject searchPage;
 	MyAccountPageObject myAccountPage;
-	OrderPageObject orderPage;
+	ProductPageObject orderPage;
 }

@@ -8,14 +8,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.OrderPageObject;
+import pageObjects.nopCommerce.ProductPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Search extends BaseTest {
     WebDriver driver;
     HomePageObject homePage;
-    OrderPageObject orderPage;
+    ProductPageObject productPage;
     RegisterPageObject registerPage;
 
     String email, password, unexistingKeyword, relativeKeyword, absoluteKeyword, advancedSearchKeyword;
@@ -54,71 +54,71 @@ public class Search extends BaseTest {
         Assert.assertTrue(registerPage.isSuccessMessageDisplayed());
 
         registerPage.openFooterPageByName(driver, "Search");
-        orderPage = PageGeneratorManager.getOrderPage(driver);
-        orderPage.clickToSearchButton();
-        Assert.assertEquals(orderPage.getSearchTermWarningMessage(), "Search term minimum length is 3 characters");
+        productPage = PageGeneratorManager.getProductPage(driver);
+        productPage.clickToSearchButton();
+        Assert.assertEquals(productPage.getSearchTermWarningMessage(), "Search term minimum length is 3 characters");
     }
 
     @Test
     public void Search_02_Unexisting_Data() {
-        orderPage.enterToSearchKeywordTextbox(unexistingKeyword);
-        orderPage.clickToSearchButton();
-        Assert.assertEquals(orderPage.getNoResultMessage(), "No products were found that matched your criteria.");
+        productPage.enterToSearchKeywordTextbox(unexistingKeyword);
+        productPage.clickToSearchButton();
+        Assert.assertEquals(productPage.getNoResultMessage(), "No products were found that matched your criteria.");
     }
 
     @Test
     public void Search_03_Relative_Data() {
-        orderPage.enterToSearchKeywordTextbox(relativeKeyword);
-        orderPage.clickToSearchButton();
-        Assert.assertTrue(orderPage.areAllResultsCorrect(relativeProductNames));
+        productPage.enterToSearchKeywordTextbox(relativeKeyword);
+        productPage.clickToSearchButton();
+        Assert.assertTrue(productPage.areAllResultsCorrect(relativeProductNames));
     }
 
     @Test
     public void Search_04_Absolute_Data() {
-        orderPage.enterToSearchKeywordTextbox(absoluteKeyword);
-        orderPage.clickToSearchButton();
-        Assert.assertEquals(orderPage.isResultCorrect(), "Lenovo Thinkpad X1 Carbon Laptop");
+        productPage.enterToSearchKeywordTextbox(absoluteKeyword);
+        productPage.clickToSearchButton();
+        Assert.assertEquals(productPage.isResultCorrect(), "Lenovo Thinkpad X1 Carbon Laptop");
     }
 
     @Test
     public void Search_05_Advanced_Search_With_Parent_Categories() {
-        orderPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
-        orderPage.selectToAdvancedSearchCheckbox();
-        orderPage.selectToCategoryDropdown("Computers");
-        orderPage.clickToSearchButton();
-        Assert.assertEquals(orderPage.getNoResultMessage(), "No products were found that matched your criteria.");
+        productPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
+        productPage.selectToAdvancedSearchCheckbox();
+        productPage.selectToCategoryDropdown("Computers");
+        productPage.clickToSearchButton();
+        Assert.assertEquals(productPage.getNoResultMessage(), "No products were found that matched your criteria.");
     }
 
     @Test
     public void Search_06_Advanced_Search_With_Sub_Categories() {
-        orderPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
-        orderPage.selectToAdvancedSearchCheckbox();
-        orderPage.selectToCategoryDropdown("Computers");
-        orderPage.selectToAutomaticallySearchSubCategoriesCheckbox();
-        orderPage.clickToSearchButton();
-        Assert.assertEquals(orderPage.isResultCorrect(), "Apple MacBook Pro 13-inch");
+        productPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
+        productPage.selectToAdvancedSearchCheckbox();
+        productPage.selectToCategoryDropdown("Computers");
+        productPage.selectToAutomaticallySearchSubCategoriesCheckbox();
+        productPage.clickToSearchButton();
+        Assert.assertEquals(productPage.isResultCorrect(), "Apple MacBook Pro 13-inch");
     }
 
     @Test
     public void Search_07_Advanced_Search_With_Incorrect_Manufacturer() {
-        orderPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
-        orderPage.selectToAdvancedSearchCheckbox();
-        orderPage.selectToCategoryDropdown("Computers");
-        orderPage.selectToAutomaticallySearchSubCategoriesCheckbox();
-        orderPage.selectToManufacturerDropdown("HP");
-        orderPage.clickToSearchButton();
-        Assert.assertEquals(orderPage.getNoResultMessage(), "No products were found that matched your criteria.");
+        productPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
+        productPage.selectToAdvancedSearchCheckbox();
+        productPage.selectToCategoryDropdown("Computers");
+        productPage.selectToAutomaticallySearchSubCategoriesCheckbox();
+        productPage.selectToManufacturerDropdown("HP");
+        productPage.clickToSearchButton();
+        Assert.assertEquals(productPage.getNoResultMessage(), "No products were found that matched your criteria.");
     }
 
     @Test
     public void Search_08_Advanced_Search_With_Correct_Manufacturer() {
-        orderPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
-        orderPage.selectToAdvancedSearchCheckbox();
-        orderPage.selectToCategoryDropdown("Computers");
-        orderPage.selectToAutomaticallySearchSubCategoriesCheckbox();
-        orderPage.selectToManufacturerDropdown("Apple");
-        orderPage.clickToSearchButton();
-        Assert.assertEquals(orderPage.isResultCorrect(), "Apple MacBook Pro 13-inch");
+        productPage.enterToSearchKeywordTextbox(advancedSearchKeyword);
+        productPage.selectToAdvancedSearchCheckbox();
+        productPage.selectToCategoryDropdown("Computers");
+        productPage.selectToAutomaticallySearchSubCategoriesCheckbox();
+        productPage.selectToManufacturerDropdown("Apple");
+        productPage.clickToSearchButton();
+        Assert.assertEquals(productPage.isResultCorrect(), "Apple MacBook Pro 13-inch");
     }
 
     @AfterClass

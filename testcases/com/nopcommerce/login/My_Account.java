@@ -14,7 +14,7 @@ public class My_Account extends BaseTest {
     WebDriver driver;
     HomePageObject homePage;
     LoginPageObject loginPage;
-    OrderPageObject orderPage;
+    ProductPageObject productPage;
     RegisterPageObject registerPage;
     MyAccountPageObject myAccountPage;
 
@@ -157,18 +157,18 @@ public class My_Account extends BaseTest {
         loginPage.hoverToTopMenuByName(driver, "Computers ");
         loginPage.clickToMenuSublist(driver, "Desktops ");
 
-        orderPage = PageGeneratorManager.getOrderPage(driver);
-        orderPage.clickToProductTitle(driver, productTitle);
-        orderPage.clickToMyProductReviewsMenu();
-        Assert.assertEquals(orderPage.getProductPageTitle(), "Product reviews for " + productTitle);
+        productPage = PageGeneratorManager.getProductPage(driver);
+        productPage.clickToProductTitle(driver, productTitle);
+        productPage.clickToMyProductReviewsMenu();
+        Assert.assertEquals(productPage.getProductPageTitle(), "Product reviews for " + productTitle);
 
-        orderPage.enterToReviewTitleTextbox(reviewTitle);
-        orderPage.enterToReviewTextTextbox(reviewText);
-        orderPage.selectReviewRatingRadio(ratingRadio);
-        orderPage.clickToSubmitReviewButton();
-        Assert.assertTrue(orderPage.isReviewResultPageDisplayed());
+        productPage.enterToReviewTitleTextbox(reviewTitle);
+        productPage.enterToReviewTextTextbox(reviewText);
+        productPage.selectReviewRatingRadio(ratingRadio);
+        productPage.clickToSubmitReviewButton();
+        Assert.assertTrue(productPage.isReviewResultPageDisplayed());
 
-        orderPage.openHeaderPageByName(driver, "My account");
+        productPage.openHeaderPageByName(driver, "My account");
         myAccountPage = PageGeneratorManager.getMyAccountPage(driver);
         Assert.assertTrue(myAccountPage.isCustomerPageTitleDisplayed());
 

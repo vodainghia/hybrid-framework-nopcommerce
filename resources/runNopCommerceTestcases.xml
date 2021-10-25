@@ -5,7 +5,7 @@
 	<test name="Run on FIREFOX">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.login.Search" />
+			<class name="com.nopcommerce.login.Sort_Display_Paging" />
 		</classes>
 	</test>
 </suite>
