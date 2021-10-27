@@ -158,7 +158,7 @@ public class My_Account extends BaseTest {
         loginPage.clickToMenuSublist(driver, "Desktops ");
 
         productPage = PageGeneratorManager.getProductPage(driver);
-        productPage.clickToProductTitle(driver, productTitle);
+        productPage.clickToProductTitle(productTitle);
         productPage.clickToMyProductReviewsMenu();
         Assert.assertEquals(productPage.getProductPageTitle(), "Product reviews for " + productTitle);
 

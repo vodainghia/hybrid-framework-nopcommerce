@@ -276,7 +276,7 @@ public class MyAccountPageObject extends BasePage {
     public void clickToCloseNotificationBarButtonInChangePassword() {
         waitForElementClickable(driver, MyAccountPageUI.CHANGE_PASSWORD_NOTIFICATION_BAR_CLOSE_BUTTON);
         clickToElement(driver, MyAccountPageUI.CHANGE_PASSWORD_NOTIFICATION_BAR_CLOSE_BUTTON);
-        sleepInSecond(2);
+        waitForElementInvisible(driver, MyAccountPageUI.CHANGE_PASSWORD_NOTIFICATION_BAR_CLOSE_BUTTON);
     }
 
     public void clickToMyProductReviewsMenu() {

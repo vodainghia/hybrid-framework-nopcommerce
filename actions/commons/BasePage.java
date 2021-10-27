@@ -462,11 +462,6 @@ public class BasePage {
         clickToElement(driver, BasePageUI.DYNAMIC_TOP_MENU_SUBLIST, menuSublistName);
     }
 
-    public void clickToProductTitle(WebDriver driver, String productTitle) {
-        waitForElementClickable(driver, BasePageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
-        clickToElement(driver, BasePageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
-    }
-
     public void sleepInSecond(long second) {
         try {
             Thread.sleep(second * 1000);

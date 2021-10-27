@@ -5,9 +5,10 @@ import org.openqa.selenium.WebDriver;
 import commons.BasePage;
 import pageUIs.nopCommerce.ProductPageUI;
 
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static commons.utils.orderListString;
 
 public class ProductPageObject extends BasePage {
     private final WebDriver driver;
@@ -35,6 +36,11 @@ public class ProductPageObject extends BasePage {
     public void enterToReviewTextTextbox(String reviewText) {
         waitForElementClickable(driver, ProductPageUI.PRODUCT_REVIEW_REVIEW_TEXT_TEXTBOX);
         sendkeyToElement(driver, ProductPageUI.PRODUCT_REVIEW_REVIEW_TEXT_TEXTBOX, reviewText);
+    }
+
+    public void clickToProductTitle(String productTitle) {
+        waitForElementClickable(driver, ProductPageUI.PRODUCT_TITLE, productTitle);
+        clickToElement(driver, ProductPageUI.PRODUCT_TITLE, productTitle);
     }
 
     public void selectReviewRatingRadio(int ratingRadio) {
@@ -73,6 +79,11 @@ public class ProductPageObject extends BasePage {
     public boolean isReviewResultPageDisplayed() {
         waitForElementVisible(driver, ProductPageUI.PRODUCT_REVIEW_RESULT_TEXT);
         return isElementDisplayed(driver, ProductPageUI.PRODUCT_REVIEW_RESULT_TEXT);
+    }
+
+    public String getProductOverviewPageTitle() {
+        waitForElementVisible(driver, ProductPageUI.PRODUCT_OVERVIEW_TEXT);
+        return getElementText(driver, ProductPageUI.PRODUCT_OVERVIEW_TEXT);
     }
 
     public void clickToSearchButton() {
@@ -148,34 +159,34 @@ public class ProductPageObject extends BasePage {
     }
 
     public boolean areAllResultsSortedFromAToZ() {
-        sleepInSecond(2);
+        waitForElementInvisible(driver, ProductPageUI.AJAX_PRODUCT_BUSY);
         waitForAllElementVisible(driver, ProductPageUI.ITEM_BOX_TEXT);
         List<String> productNames = getElementsText(driver, ProductPageUI.ITEM_BOX_TEXT);
-        List<String> expectedList = productNames.stream().sorted().collect(Collectors.toList());
+        List<String> expectedList = orderListString(productNames);
         return productNames.equals(expectedList);
     }
 
     public boolean areAllResultsSortedFromZToA() {
-        sleepInSecond(2);
+        waitForElementInvisible(driver, ProductPageUI.AJAX_PRODUCT_BUSY);
         waitForAllElementVisible(driver, ProductPageUI.ITEM_BOX_TEXT);
         List<String> productNames = getElementsText(driver, ProductPageUI.ITEM_BOX_TEXT);
-        List<String> expectedList = productNames.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        List<String> expectedList = orderListString(productNames);
         return productNames.equals(expectedList);
     }
 
     public boolean areAllResultsSortedFromLowToHigh() {
-        sleepInSecond(2);
+        waitForElementInvisible(driver, ProductPageUI.AJAX_PRODUCT_BUSY);
         waitForAllElementVisible(driver, ProductPageUI.ITEM_BOX_PRICE);
         List<String> productNames = getElementsText(driver, ProductPageUI.ITEM_BOX_PRICE);
-        List<String> expectedList = productNames.stream().sorted().collect(Collectors.toList());
+        List<String> expectedList = orderListString(productNames);
         return productNames.equals(expectedList);
     }
 
     public boolean areAllResultsSortedFromHighToLow() {
-        sleepInSecond(2);
+        waitForElementInvisible(driver, ProductPageUI.AJAX_PRODUCT_BUSY);
         waitForAllElementVisible(driver, ProductPageUI.ITEM_BOX_PRICE);
         List<String> productNames = getElementsText(driver, ProductPageUI.ITEM_BOX_PRICE);
-        List<String> expectedList = productNames.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        List<String> expectedList = orderListString(productNames);
         return productNames.equals(expectedList);
     }
 
@@ -185,14 +196,14 @@ public class ProductPageObject extends BasePage {
     }
 
     public int returnedProductQuantity() {
-        sleepInSecond(2);
+        waitForElementInvisible(driver, ProductPageUI.AJAX_PRODUCT_BUSY);
         waitForAllElementVisible(driver, ProductPageUI.ITEM_BOX_TEXT);
         List<String> productNames = getElementsText(driver, ProductPageUI.ITEM_BOX_TEXT);
         return productNames.size();
     }
 
     public String getCurrentPage() {
-        sleepInSecond(2);
+        waitForElementInvisible(driver, ProductPageUI.AJAX_PRODUCT_BUSY);
         waitForElementVisible(driver, ProductPageUI.CURRENT_PAGE_BUTTON);
         return getElementText(driver, ProductPageUI.CURRENT_PAGE_BUTTON);
     }
@@ -213,5 +224,68 @@ public class ProductPageObject extends BasePage {
     public boolean isPagingUnDisplaying() {
         waitForElementInvisible(driver, ProductPageUI.PAGING);
         return isElementUnDisplayed(driver, ProductPageUI.PAGING);
+    }
+
+    public void clickToAddToWishlistButton() {
+        waitForElementVisible(driver, ProductPageUI.ADD_TO_WISHLIST_BUTTON);
+        clickToElement(driver, ProductPageUI.ADD_TO_WISHLIST_BUTTON);
+    }
+
+    public String getBarNotificationText() {
+        waitForElementVisible(driver, ProductPageUI.BAR_NOTIFICATION_TEXT);
+        return getElementText(driver, ProductPageUI.BAR_NOTIFICATION_TEXT);
+    }
+
+    public void clickToCloseBarNotification() {
+        waitForElementVisible(driver, ProductPageUI.BAR_NOTIFICATION_CLOSE_BUTTON);
+        clickToElement(driver, ProductPageUI.BAR_NOTIFICATION_CLOSE_BUTTON);
+        waitForElementInvisible(driver, ProductPageUI.BAR_NOTIFICATION_CLOSE_BUTTON);
+    }
+
+    public void clickToAddToCompareListButton(String productTitle) {
+        waitForElementVisible(driver, ProductPageUI.DYNAMIC_ADD_TO_COMPARE_LIST_BUTTON, productTitle);
+        clickToElement(driver, ProductPageUI.DYNAMIC_ADD_TO_COMPARE_LIST_BUTTON, productTitle);
+    }
+
+    public String getProductPrice(String productTitle) {
+        waitForElementVisible(driver, ProductPageUI.DYNAMIC_PRODUCT_PRICE_TEXT, productTitle);
+        return getElementText(driver, ProductPageUI.DYNAMIC_PRODUCT_PRICE_TEXT, productTitle);
+    }
+
+    public boolean areProductNamesDisplayingCorrect(String... params) {
+        waitForAllElementVisible(driver, ProductPageUI.PRODUCT_TITLE_LIST);
+        List<String> productNames = getElementsText(driver, ProductPageUI.PRODUCT_TITLE_LIST);
+        List<String> expectedList = Arrays.asList(params);
+        return orderListString(productNames).equals(orderListString(expectedList));
+    }
+
+    public boolean areProductPricesDisplayingCorrect(String... params) {
+        waitForAllElementVisible(driver, ProductPageUI.PRODUCT_PRICE_LIST);
+        List<String> productPrices = getElementsText(driver, ProductPageUI.PRODUCT_PRICE_LIST);
+        List<String> expectedList = Arrays.asList(params);
+        return orderListString(productPrices).equals(orderListString(expectedList));
+    }
+
+    public void clickToClearListButton() {
+        waitForElementVisible(driver, ProductPageUI.CLEAR_LIST_BUTTON);
+        clickToElement(driver, ProductPageUI.CLEAR_LIST_BUTTON);
+    }
+
+    public String getMessage() {
+        waitForElementVisible(driver, ProductPageUI.MESSAGE);
+        return getElementText(driver, ProductPageUI.MESSAGE);
+    }
+
+    public boolean areProductUnDisplaying() {
+        waitForElementInvisible(driver, ProductPageUI.PRODUCT_TITLE_LIST);
+        return isElementUnDisplayed(driver, ProductPageUI.PRODUCT_TITLE_LIST);
+    }
+
+    public void viewProductDetailsSerial(String categoryName, String subCategoryName, String[] productNames) {
+        for (String productName : productNames) {
+            hoverToTopMenuByName(driver, categoryName);
+            clickToMenuSublist(driver, subCategoryName);
+            clickToProductTitle(productName);
+        }
     }
 }

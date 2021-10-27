@@ -12,6 +12,8 @@ public class ProductPageUI {
     public static final String PRODUCT_REVIEW_RATING_5_POINT_RADIO = "//input[@id='addproductrating_5']";
     public static final String PRODUCT_REVIEW_SUBMIT_REIVEW_BUTTON = "//button[@name='add-review']";
     public static final String PRODUCT_REVIEW_RESULT_TEXT = "//div[@class='result']";
+    public static final String PRODUCT_OVERVIEW_TEXT = "//form[@id='product-details-form']//h1";
+    public static final String PRODUCT_TITLE = "//h2[@class='product-title']/a[text()='%s']";
 
     public static final String SEARCH_BUTTON = "//div[@class='search-input']//button";
     public static final String SEARCH_WARNING_MESSAGE = "//div[@class='search-results']//div[@class='warning']";
@@ -31,4 +33,14 @@ public class ProductPageUI {
     public static final String NEXT_PAGE_BUTTON = "//li[@class='next-page']";
     public static final String PREVIOUS_PAGE_BUTTON = "//li[@class='previous-page']";
     public static final String PAGING = "//div[@class='pager']";
+    public static final String ADD_TO_WISHLIST_BUTTON = "//button[@id='add-to-wishlist-button-4']";
+    public static final String BAR_NOTIFICATION_TEXT = "//div[@id='bar-notification']//p";
+    public static final String BAR_NOTIFICATION_CLOSE_BUTTON = "//div[@id='bar-notification']//span";
+    public static final String AJAX_PRODUCT_BUSY = "//div[@class='ajax-products-busy']";
+    public static final String DYNAMIC_ADD_TO_COMPARE_LIST_BUTTON = "//a[text()='%s']/parent::h2/following-sibling::div//button[@title='Add to compare list']";
+    public static final String PRODUCT_TITLE_LIST = "//tr[@class='product-name']//a";
+    public static final String DYNAMIC_PRODUCT_PRICE_TEXT = "//a[text()='%s']/parent::h2/following-sibling::div[@class='add-info']//span";
+    public static final String PRODUCT_PRICE_LIST = "//tr[@class='product-price']/td[@style]";
+    public static final String CLEAR_LIST_BUTTON = "//a[@class='clear-list']";
+    public static final String MESSAGE = "//div[@class='no-data']";
 }
