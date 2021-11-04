@@ -5,7 +5,7 @@
 	<test name="Run on FIREFOX">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.login.Wishlist_Compare_RecentView"/>
+			<class name="com.nopcommerce.login.Order"/>
 		</classes>
 	</test>
 </suite>

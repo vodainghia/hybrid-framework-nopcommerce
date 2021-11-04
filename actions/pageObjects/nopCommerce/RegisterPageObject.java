@@ -21,7 +21,7 @@ public class RegisterPageObject extends BasePage {
 	public void clickToGenderMaleRadioButton() {
 		scrollToElement(driver, RegisterPageUI.GENDER_MALE_RADIO);
 		waitForElementClickable(driver, RegisterPageUI.GENDER_MALE_RADIO);
-		clickToElement(driver, RegisterPageUI.GENDER_MALE_RADIO);
+        checkToCheckboxOrRadio(driver, RegisterPageUI.GENDER_MALE_RADIO);
 	}
 
 	public void enterToFirstnameTextbox(String firstName) {
@@ -89,6 +89,4 @@ public class RegisterPageObject extends BasePage {
 		waitForElementVisible(driver, RegisterPageUI.CONFIRM_ERROR_MESSAGE);
 		return getElementText(driver, RegisterPageUI.CONFIRM_ERROR_MESSAGE);
 	}
-
-
 }

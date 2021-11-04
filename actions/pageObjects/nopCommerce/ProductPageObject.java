@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import commons.BasePage;
 import pageUIs.nopCommerce.ProductPageUI;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ProductPageObject extends BasePage {
     }
 
     public void clickToMyProductReviewsMenu() {
-        waitForElementVisible(driver, ProductPageUI.ADD_YOUR_REVIEW_LINK);
+        waitForElementClickable(driver, ProductPageUI.ADD_YOUR_REVIEW_LINK);
         clickToElement(driver, ProductPageUI.ADD_YOUR_REVIEW_LINK);
     }
 
@@ -72,7 +73,7 @@ public class ProductPageObject extends BasePage {
     }
 
     public void clickToSubmitReviewButton() {
-        waitForElementVisible(driver, ProductPageUI.PRODUCT_REVIEW_SUBMIT_REIVEW_BUTTON);
+        waitForElementClickable(driver, ProductPageUI.PRODUCT_REVIEW_SUBMIT_REIVEW_BUTTON);
         clickToElement(driver, ProductPageUI.PRODUCT_REVIEW_SUBMIT_REIVEW_BUTTON);
     }
 
@@ -87,7 +88,7 @@ public class ProductPageObject extends BasePage {
     }
 
     public void clickToSearchButton() {
-        waitForElementVisible(driver, ProductPageUI.SEARCH_BUTTON);
+        waitForElementClickable(driver, ProductPageUI.SEARCH_BUTTON);
         clickToElement(driver, ProductPageUI.SEARCH_BUTTON);
     }
 
@@ -213,7 +214,7 @@ public class ProductPageObject extends BasePage {
     }
 
     public void clickToNextPageButton() {
-        waitForElementVisible(driver, ProductPageUI.NEXT_PAGE_BUTTON);
+        waitForElementClickable(driver, ProductPageUI.NEXT_PAGE_BUTTON);
         clickToElement(driver, ProductPageUI.NEXT_PAGE_BUTTON);
     }
 
@@ -227,7 +228,7 @@ public class ProductPageObject extends BasePage {
     }
 
     public void clickToAddToWishlistButton() {
-        waitForElementVisible(driver, ProductPageUI.ADD_TO_WISHLIST_BUTTON);
+        waitForElementClickable(driver, ProductPageUI.ADD_TO_WISHLIST_BUTTON);
         clickToElement(driver, ProductPageUI.ADD_TO_WISHLIST_BUTTON);
     }
 
@@ -237,13 +238,13 @@ public class ProductPageObject extends BasePage {
     }
 
     public void clickToCloseBarNotification() {
-        waitForElementVisible(driver, ProductPageUI.BAR_NOTIFICATION_CLOSE_BUTTON);
+        waitForElementClickable(driver, ProductPageUI.BAR_NOTIFICATION_CLOSE_BUTTON);
         clickToElement(driver, ProductPageUI.BAR_NOTIFICATION_CLOSE_BUTTON);
-        waitForElementInvisible(driver, ProductPageUI.BAR_NOTIFICATION_CLOSE_BUTTON);
+        sleepInSecond(3);
     }
 
     public void clickToAddToCompareListButton(String productTitle) {
-        waitForElementVisible(driver, ProductPageUI.DYNAMIC_ADD_TO_COMPARE_LIST_BUTTON, productTitle);
+        waitForElementClickable(driver, ProductPageUI.DYNAMIC_ADD_TO_COMPARE_LIST_BUTTON, productTitle);
         clickToElement(driver, ProductPageUI.DYNAMIC_ADD_TO_COMPARE_LIST_BUTTON, productTitle);
     }
 
@@ -252,7 +253,7 @@ public class ProductPageObject extends BasePage {
         return getElementText(driver, ProductPageUI.DYNAMIC_PRODUCT_PRICE_TEXT, productTitle);
     }
 
-    public boolean areProductNamesDisplayingCorrect(String... params) {
+    public boolean areCompareProductNamesDisplayingCorrect(String... params) {
         waitForAllElementVisible(driver, ProductPageUI.PRODUCT_TITLE_LIST);
         List<String> productNames = getElementsText(driver, ProductPageUI.PRODUCT_TITLE_LIST);
         List<String> expectedList = Arrays.asList(params);
@@ -267,7 +268,7 @@ public class ProductPageObject extends BasePage {
     }
 
     public void clickToClearListButton() {
-        waitForElementVisible(driver, ProductPageUI.CLEAR_LIST_BUTTON);
+        waitForElementClickable(driver, ProductPageUI.CLEAR_LIST_BUTTON);
         clickToElement(driver, ProductPageUI.CLEAR_LIST_BUTTON);
     }
 
@@ -286,6 +287,85 @@ public class ProductPageObject extends BasePage {
             hoverToTopMenuByName(driver, categoryName);
             clickToMenuSublist(driver, subCategoryName);
             clickToProductTitle(productName);
+        }
+    }
+
+    public boolean areRecentlyViewedProductNamesDisplayingCorrect(String... params) {
+        waitForAllElementVisible(driver, ProductPageUI.RECENTLY_VIEWED_PRODUCT_TITLE_LIST);
+        List<String> productNames = getElementsText(driver, ProductPageUI.RECENTLY_VIEWED_PRODUCT_TITLE_LIST);
+        List<String> expectedList = Arrays.asList(params);
+        return orderListString(productNames).equals(orderListString(expectedList));
+    }
+
+    public void selectToProcessorDropdown(String expectedProcessor) {
+        waitForElementClickable(driver, ProductPageUI.PROCESSOR_DROPDOWN);
+        selectDropdownByText(driver, ProductPageUI.PROCESSOR_DROPDOWN, expectedProcessor);
+    }
+
+    public void selectToRamDropdown(String expectedRam) {
+        waitForElementClickable(driver, ProductPageUI.RAM_DROPDOWN);
+        selectDropdownByText(driver, ProductPageUI.RAM_DROPDOWN, expectedRam);
+    }
+
+    public void selectToHddRadio(String expectedHdd) {
+        waitForElementClickable(driver, ProductPageUI.DYNAMIC_HDD_RADIO, expectedHdd);
+        checkToCheckboxOrRadio(driver, ProductPageUI.DYNAMIC_HDD_RADIO, expectedHdd);
+    }
+
+    public void selectToOsRadio(String expectedOs) {
+        waitForElementClickable(driver, ProductPageUI.DYNAMIC_OS_RADIO, expectedOs);
+        checkToCheckboxOrRadio(driver, ProductPageUI.DYNAMIC_OS_RADIO, expectedOs);
+    }
+
+    public void selectToSoftwareCheckbox(ArrayList<String> expectedSoftwares) {
+        for (String software : expectedSoftwares) {
+            sleepInSecond(1);
+            waitForElementClickable(driver, ProductPageUI.DYNAMIC_SOFTWARE_CHECKBOX, software);
+            checkToCheckboxOrRadio(driver, ProductPageUI.DYNAMIC_SOFTWARE_CHECKBOX, software);
+        }
+    }
+
+    public void clickToAddToCartButton() {
+        waitForElementClickable(driver, ProductPageUI.ADD_TO_CART_BUTTON);
+        clickToElement(driver, ProductPageUI.ADD_TO_CART_BUTTON);
+    }
+
+    public String getCountMessageOnFlyoutCart() {
+        waitForElementVisible(driver, ProductPageUI.COUNT_MESSAGE_FLYOUT_CART_TEXT);
+        return getElementText(driver, ProductPageUI.COUNT_MESSAGE_FLYOUT_CART_TEXT);
+    }
+
+    public String getAllAttributesOnFlyoutCart() {
+        waitForElementVisible(driver, ProductPageUI.ATTRIBUTES_FLYOUT_CART_TEXT);
+        return getElementText(driver, ProductPageUI.ATTRIBUTES_FLYOUT_CART_TEXT);
+    }
+
+    public String getSubTotalOnFlyoutCart() {
+        waitForElementVisible(driver, ProductPageUI.SUB_TOTAL_FLYOUT_CART_TEXT);
+        return getElementText(driver, ProductPageUI.SUB_TOTAL_FLYOUT_CART_TEXT);
+    }
+
+    public void enterToQuantityTextbox(String quantity) {
+        waitForElementClickable(driver, ProductPageUI.QUANTITY_TEXTBOX);
+        sendkeyToElement(driver, ProductPageUI.QUANTITY_TEXTBOX, quantity);
+    }
+
+    public void clickToUpdateButton() {
+        waitForElementClickable(driver, ProductPageUI.ADD_TO_CART_BUTTON);
+        clickToElement(driver, ProductPageUI.ADD_TO_CART_BUTTON);
+    }
+
+    public String getProductPriceText() {
+        sleepInSecond(2);
+        waitForElementVisible(driver, ProductPageUI.PRODUCT_PRICE_TEXT);
+        return getElementText(driver, ProductPageUI.PRODUCT_PRICE_TEXT);
+    }
+
+    public void unSelectToSoftwareCheckbox(ArrayList<String> listUpdatedSoftwaresUnCheck) {
+        for (String software : listUpdatedSoftwaresUnCheck) {
+            sleepInSecond(1);
+            waitForElementClickable(driver, ProductPageUI.DYNAMIC_SOFTWARE_CHECKBOX, software);
+            uncheckToCheckbox(driver, ProductPageUI.DYNAMIC_SOFTWARE_CHECKBOX, software);
         }
     }
 }

@@ -19,7 +19,7 @@ public class MyAccountPageObject extends BasePage {
     public void clickToGenderFemaleRadioButtonInCustomer() {
         scrollToElement(driver, MyAccountPageUI.CUSTOMER_GENDER_FEMALE_RADIO);
         waitForElementClickable(driver, MyAccountPageUI.CUSTOMER_GENDER_FEMALE_RADIO);
-        clickToElement(driver, MyAccountPageUI.CUSTOMER_GENDER_FEMALE_RADIO);
+        checkToCheckboxOrRadio(driver, MyAccountPageUI.CUSTOMER_GENDER_FEMALE_RADIO);
     }
 
     public void enterToFirstnameTextboxInCustomer(String firstName) {
@@ -292,5 +292,197 @@ public class MyAccountPageObject extends BasePage {
     public String getReviewTextInMyProductReviews() {
         waitForElementVisible(driver, MyAccountPageUI.MY_PRODUCT_REVIEWS_REVIEW_TEXT);
         return getElementText(driver, MyAccountPageUI.MY_PRODUCT_REVIEWS_REVIEW_TEXT);
+    }
+
+    public void clickToOrdersMenu() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_MENU_LINK);
+        clickToElement(driver, MyAccountPageUI.ORDERS_MENU_LINK);
+    }
+
+    public String getOrderItemTitle() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_ITEM_TITLE);
+        String orderNumberText = getElementText(driver, MyAccountPageUI.ORDERS_ORDER_ITEM_TITLE);
+        return orderNumberText.substring(orderNumberText.length() - 4);
+    }
+
+    public void clickToDetailbutton() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_DETAIL_BUTTON);
+        clickToElement(driver, MyAccountPageUI.ORDERS_ORDER_DETAIL_BUTTON);
+    }
+
+    public String getOrderNumberOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_OVERVIEW_TEXT);
+        String orderNumberText = getElementText(driver, MyAccountPageUI.ORDERS_ORDER_OVERVIEW_TEXT);
+        return orderNumberText.substring(orderNumberText.length() - 4);
+    }
+
+    public String getOrderDateOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_DATE_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_ORDER_DATE_TEXT);
+    }
+
+    public String getOrderStatusOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_STATUS_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_ORDER_STATUS_TEXT);
+    }
+
+    public String getOrderTotalOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_TOTAL_OVERVIEW_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_ORDER_TOTAL_OVERVIEW_TEXT);
+    }
+
+    public String getNameBillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_NAME_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_NAME_TEXT);
+    }
+
+    public String getEmailBillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_EMAIL_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_EMAIL_TEXT);
+    }
+
+    public String getPhoneBillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_PHONE_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_PHONE_TEXT);
+    }
+
+    public String getFaxBillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_FAX_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_FAX_TEXT);
+    }
+
+    public String getCompanyBillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_COMPANY_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_COMPANY_TEXT);
+    }
+
+    public String getAddress1BillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_ADDRESS_1_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_ADDRESS_1_TEXT);
+    }
+
+    public String getCityStateZipBillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_CITY_STATE_ZIP_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_CITY_STATE_ZIP_TEXT);
+    }
+
+    public String getCountryBillingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_BILLING_COUNTRY_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_BILLING_COUNTRY_TEXT);
+    }
+
+    public String getPaymentMethodOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_PAYMENT_METHOD_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_PAYMENT_METHOD_TEXT);
+    }
+
+    public String getPaymentStatusOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_PAYMENT_STATUS_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_PAYMENT_STATUS_TEXT);
+    }
+
+    public String getNameShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_NAME_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_NAME_TEXT);
+    }
+
+    public String getEmailShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_EMAIL_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_EMAIL_TEXT);
+    }
+
+    public String getPhoneShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_PHONE_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_PHONE_TEXT);
+    }
+
+    public String getFaxShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_FAX_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_FAX_TEXT);
+    }
+
+    public String getCompanyShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_COMPANY_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_COMPANY_TEXT);
+    }
+
+    public String getAddress1ShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_ADDRESS_1_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_ADDRESS_1_TEXT);
+    }
+
+    public String getCityStateZipShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_CITY_STATE_ZIP_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_CITY_STATE_ZIP_TEXT);
+    }
+
+    public String getCountryShippingOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_COUNTRY_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_COUNTRY_TEXT);
+    }
+
+    public String getShippingMethodOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_METHOD_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_METHOD_TEXT);
+    }
+
+    public String getShippingStatusOnOverview() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_STATUS_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_STATUS_TEXT);
+    }
+
+    public String getSkuOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SKU_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SKU_TEXT);
+    }
+
+    public String getProductNameOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_PRODUCT_NAME_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_PRODUCT_NAME_TEXT);
+    }
+
+    public String getUnitPriceOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_UNIT_PRICE_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_UNIT_PRICE_TEXT);
+    }
+
+    public String getQuantityOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_QUANTITY_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_QUANTITY_TEXT);
+    }
+
+    public String getSubTotalOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SUB_TOTAL_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SUB_TOTAL_TEXT);
+    }
+
+    public String getCartOptionOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_CART_OPTION_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_CART_OPTION_TEXT);
+    }
+
+    public String getOrderSubTotalOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_SUB_TOTAL_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_ORDER_SUB_TOTAL_TEXT);
+    }
+
+    public String getShippingCostOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_SHIPPING_COST_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_SHIPPING_COST_TEXT);
+    }
+
+    public String getTaxValueOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_TAX_VALUE_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_TAX_VALUE_TEXT);
+    }
+
+    public String getOrderTotalOnConfirmOrder() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_ORDER_TOTAL_TEXT);
+        return getElementText(driver, MyAccountPageUI.ORDERS_ORDER_TOTAL_TEXT);
+    }
+
+    public void clickToReorderButton() {
+        waitForElementVisible(driver, MyAccountPageUI.ORDERS_REORDER_BUTTON);
+        clickToElement(driver, MyAccountPageUI.ORDERS_REORDER_BUTTON);
     }
 }

@@ -27,8 +27,8 @@ public class Sort_Display_Paging extends BaseTest {
         homePage = PageGeneratorManager.getHomePage(driver);
         Assert.assertTrue(homePage.isHomePageSliderDisplayed());
 
-        homePage.hoverToTopMenuByName(driver, "Computers ");
-        homePage.clickToMenuSublist(driver, "Notebooks ");
+        homePage.hoverToTopMenuByName(driver, "Computers");
+        homePage.clickToMenuSublist(driver, "Notebooks");
         productPage = PageGeneratorManager.getProductPage(driver);
         productPage.selectToSortByDropdown("Name: A to Z");
         Assert.assertTrue(productPage.areAllResultsSortedFromAToZ());

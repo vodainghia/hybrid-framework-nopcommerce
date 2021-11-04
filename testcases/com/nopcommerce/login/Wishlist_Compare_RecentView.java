@@ -50,8 +50,8 @@ public class Wishlist_Compare_RecentView extends BaseTest {
         registerPage.enterToPasswordTextbox(password);
         registerPage.enterToConfirmPasswordTextbox(password);
         registerPage.clickToRegisterButton();
-        registerPage.hoverToTopMenuByName(driver, "Computers ");
-        registerPage.clickToMenuSublist(driver, "Notebooks ");
+        registerPage.hoverToTopMenuByName(driver, "Computers");
+        registerPage.clickToMenuSublist(driver, "Notebooks");
 
         productPage = PageGeneratorManager.getProductPage(driver);
         productPage.clickToProductTitle(productTitleMacbookPro);
@@ -89,8 +89,8 @@ public class Wishlist_Compare_RecentView extends BaseTest {
 
     @Test
     public void Wishlist_Compare_RecentView_03_Remove_Product_In_Wishlist() {
-        wishListPage.hoverToTopMenuByName(driver, "Computers ");
-        wishListPage.clickToMenuSublist(driver, "Notebooks ");
+        wishListPage.hoverToTopMenuByName(driver, "Computers");
+        wishListPage.clickToMenuSublist(driver, "Notebooks");
         productPage = PageGeneratorManager.getProductPage(driver);
         productPage.clickToProductTitle(productTitleMacbookPro);
         productPage.clickToAddToWishlistButton();
@@ -105,8 +105,8 @@ public class Wishlist_Compare_RecentView extends BaseTest {
 
     @Test
     public void Wishlist_Compare_RecentView_04_Add_Product_To_Compare() {
-        wishListPage.hoverToTopMenuByName(driver, "Computers ");
-        wishListPage.clickToMenuSublist(driver, "Notebooks ");
+        wishListPage.hoverToTopMenuByName(driver, "Computers");
+        wishListPage.clickToMenuSublist(driver, "Notebooks");
         productPage = PageGeneratorManager.getProductPage(driver);
         productPage.clickToAddToCompareListButton(productTitleMacbookPro);
         Assert.assertEquals(productPage.getBarNotificationText(), "The product has been added to your product comparison");
@@ -114,10 +114,9 @@ public class Wishlist_Compare_RecentView extends BaseTest {
         productPage.clickToAddToCompareListButton(productTitleSamsungUltrabook);
         Assert.assertEquals(productPage.getBarNotificationText(), "The product has been added to your product comparison");
         productPriceSamsungUltrabook = productPage.getProductPrice(productTitleSamsungUltrabook);
-        productPage.clickToCloseBarNotification();
 
         productPage.openFooterPageByName(driver, "Compare products list");
-        Assert.assertTrue(productPage.areProductNamesDisplayingCorrect(productTitleMacbookPro, productTitleSamsungUltrabook));
+        Assert.assertTrue(productPage.areCompareProductNamesDisplayingCorrect(productTitleMacbookPro, productTitleSamsungUltrabook));
         Assert.assertTrue(productPage.areProductPricesDisplayingCorrect(productPriceMacbookPro, productPriceSamsungUltrabook));
         productPage.clickToClearListButton();
         Assert.assertEquals(productPage.getMessage(), "You have no items to compare.");
@@ -125,10 +124,10 @@ public class Wishlist_Compare_RecentView extends BaseTest {
     }
 
     @Test
-    public void Wishlist_Compare_RecentView_05_Recentlt_Viewed_Products() {
-        productPage.viewProductDetailsSerial("Computers ", "Notebooks ", productNames);
+    public void Wishlist_Compare_RecentView_05_Recently_Viewed_Products() {
+        productPage.viewProductDetailsSerial("Computers", "Notebooks", productNames);
         productPage.openFooterPageByName(driver, "Recently viewed products");
-        Assert.assertTrue(productPage.areProductNamesDisplayingCorrect(productTitleAsusLaptop, productTitleHPSpectre, productTitleHPEnvy));
+        Assert.assertTrue(productPage.areRecentlyViewedProductNamesDisplayingCorrect(productTitleAsusLaptop, productTitleHPSpectre, productTitleHPEnvy));
     }
 
     @AfterClass

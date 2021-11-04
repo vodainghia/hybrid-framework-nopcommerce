@@ -154,8 +154,8 @@ public class My_Account extends BaseTest {
 
     @Test
     public void My_Account_04_My_Product_Reviews() {
-        loginPage.hoverToTopMenuByName(driver, "Computers ");
-        loginPage.clickToMenuSublist(driver, "Desktops ");
+        loginPage.hoverToTopMenuByName(driver, "Computers");
+        loginPage.clickToMenuSublist(driver, "Desktops");
 
         productPage = PageGeneratorManager.getProductPage(driver);
         productPage.clickToProductTitle(productTitle);

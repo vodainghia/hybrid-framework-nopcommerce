@@ -43,4 +43,16 @@ public class ProductPageUI {
     public static final String PRODUCT_PRICE_LIST = "//tr[@class='product-price']/td[@style]";
     public static final String CLEAR_LIST_BUTTON = "//a[@class='clear-list']";
     public static final String MESSAGE = "//div[@class='no-data']";
+    public static final String RECENTLY_VIEWED_PRODUCT_TITLE_LIST = "//h2[@class='product-title']/a";
+    public static final String PROCESSOR_DROPDOWN = "//select[@id='product_attribute_1']";
+    public static final String RAM_DROPDOWN = "//select[@id='product_attribute_2']";
+    public static final String DYNAMIC_HDD_RADIO = "//dd[@id='product_attribute_input_3']//label[text()='%s']/preceding-sibling::input";
+    public static final String DYNAMIC_OS_RADIO = "//dd[@id='product_attribute_input_4']//label[text()='%s']/preceding-sibling::input";
+    public static final String DYNAMIC_SOFTWARE_CHECKBOX = "//dd[@id='product_attribute_input_5']//label[text()='%s']/preceding-sibling::input";
+    public static final String ADD_TO_CART_BUTTON = "//button[contains(@id,'add-to-cart-button')]";
+    public static final String COUNT_MESSAGE_FLYOUT_CART_TEXT = "//div[@id='flyout-cart']//div[@class='count']";
+    public static final String ATTRIBUTES_FLYOUT_CART_TEXT = "//div[@id='flyout-cart']//div[@class='attributes']";
+    public static final String SUB_TOTAL_FLYOUT_CART_TEXT = "//div[@id='flyout-cart']//div[@class='totals']/strong";
+    public static final String QUANTITY_TEXTBOX = "//input[@id='product_enteredQuantity_1']";
+    public static final String PRODUCT_PRICE_TEXT = "//span[@id='price-value-1']";
 }

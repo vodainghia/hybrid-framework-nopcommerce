@@ -1,5 +1,7 @@
 package commons;
 
+import static commons.utils.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -147,9 +149,8 @@ public class BasePage {
     }
 
     public void sendkeyToElement(WebDriver driver, String locator, String value, String... params) {
-        locator = getDynamicLocator(locator, params);
-        getElement(driver, locator).clear();
-        getElement(driver, locator).sendKeys(value);
+        getElement(driver, getDynamicLocator(locator, params)).clear();
+        getElement(driver, getDynamicLocator(locator, params)).sendKeys(value);
     }
 
     public int getElementSize(WebDriver driver, String locator) {
@@ -217,9 +218,21 @@ public class BasePage {
         }
     }
 
+    public void checkToCheckboxOrRadio(WebDriver driver, String locator, String... params) {
+        if (!isElementSelected(driver, getDynamicLocator(locator, params))) {
+            getElement(driver, getDynamicLocator(locator, params)).click();
+        }
+    }
+
     public void uncheckToCheckbox(WebDriver driver, String locator) {
         if (isElementSelected(driver, locator)) {
             getElement(driver, locator).click();
+        }
+    }
+
+    public void uncheckToCheckbox(WebDriver driver, String locator, String... params) {
+        if (isElementSelected(driver, getDynamicLocator(locator, params))) {
+            getElement(driver, getDynamicLocator(locator, params)).click();
         }
     }
 
@@ -328,6 +341,12 @@ public class BasePage {
     public void scrollToElement(WebDriver driver, String locator) {
         jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", getElement(driver, locator));
+        sleepInSecond(1);
+    }
+
+    public void scrollToElement(WebDriver driver, String locator, String... params) {
+        jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", getElement(driver, getDynamicLocator(locator, params)));
         sleepInSecond(1);
     }
 
@@ -452,7 +471,14 @@ public class BasePage {
         clickToElement(driver, BasePageUI.DYNAMIC_PAGE_HEADER, pageName);
     }
 
+    public void hoverToHearPageByName(WebDriver driver, String pageName) {
+        scrollToElement(driver, BasePageUI.DYNAMIC_PAGE_HEADER, pageName);
+        waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_HEADER, pageName);
+        hoverToElement(driver, BasePageUI.DYNAMIC_PAGE_HEADER, pageName);
+    }
+
     public void hoverToTopMenuByName(WebDriver driver, String menuName) {
+        scrollToElement(driver, BasePageUI.DYNAMIC_TOP_MENU, menuName);
         waitForElementClickable(driver, BasePageUI.DYNAMIC_TOP_MENU, menuName);
         hoverToElement(driver, BasePageUI.DYNAMIC_TOP_MENU, menuName);
     }
@@ -460,6 +486,10 @@ public class BasePage {
     public void clickToMenuSublist(WebDriver driver, String menuSublistName) {
         waitForElementClickable(driver, BasePageUI.DYNAMIC_TOP_MENU_SUBLIST, menuSublistName);
         clickToElement(driver, BasePageUI.DYNAMIC_TOP_MENU_SUBLIST, menuSublistName);
+    }
+
+    public String getCurrentDatetime(String pattern) {
+        return getCurrentDatetimeAsFormat(pattern);
     }
 
     public void sleepInSecond(long second) {

@@ -11,7 +11,7 @@ public class MyAccountPageUI {
 	public static final String CUSTOMER_BIRTHMONTH_DROPDOWN = "//select[@name='DateOfBirthMonth']";
 	public static final String CUSTOMER_BIRTHYEAR_DROPDOWN = "//select[@name='DateOfBirthYear']";
 	public static final String CUSTOMER_SAVE_BUTTON = "//button[@id='save-info-button']";
-	
+
 	public static final String ADDRESSES_MENU_LINK = "//li[contains(@class,'customer-addresses')]/a";
 	public static final String ADDRESSES_PAGE_TITLE = "//div[@class='page-title']/h1[text()='My account - Addresses']";
 	public static final String ADDRESSES_ADD_NEW_BUTTON = "//button[contains(@class,'add-address-button')]";
@@ -50,4 +50,43 @@ public class MyAccountPageUI {
 	public static final String MY_PRODUCT_REVIEWS_MENU_LINK = "//li[contains(@class,'customer-reviews')]/a";
 	public static final String MY_PRODUCT_REVIEWS_PAGE_TITLE = "//div[@class='page-title']/h1[text()='My account - My product reviews']";
 	public static final String MY_PRODUCT_REVIEWS_REVIEW_TEXT = "//div[@class='review-text']";
+
+	public static final String ORDERS_MENU_LINK = "//li[contains(@class,'orders')]/a";
+	public static final String ORDERS_ORDER_ITEM_TITLE = "//div[contains(@class,'order-item')]//strong";
+	public static final String ORDERS_ORDER_DETAIL_BUTTON = "//div[contains(@class,'order-item')]//button";
+	public static final String ORDERS_ORDER_OVERVIEW_TEXT = "//div[@class='order-number']";
+	public static final String ORDERS_ORDER_DATE_TEXT = "//li[@class='order-date']";
+	public static final String ORDERS_ORDER_STATUS_TEXT = "//li[@class='order-status']";
+	public static final String ORDERS_ORDER_TOTAL_OVERVIEW_TEXT = "//li[@class='order-total']";
+	public static final String ORDERS_BILLING_NAME_TEXT = "//div[@class='billing-info']//li[@class='name']";
+	public static final String ORDERS_BILLING_EMAIL_TEXT = "//div[@class='billing-info']//li[@class='email']";
+	public static final String ORDERS_BILLING_PHONE_TEXT = "//div[@class='billing-info']//li[@class='phone']";
+	public static final String ORDERS_BILLING_FAX_TEXT = "//div[@class='billing-info']//li[@class='fax']";
+	public static final String ORDERS_BILLING_COMPANY_TEXT = "//div[@class='billing-info']//li[@class='company']";
+	public static final String ORDERS_BILLING_ADDRESS_1_TEXT = "//div[@class='billing-info']//li[@class='address1']";
+	public static final String ORDERS_BILLING_CITY_STATE_ZIP_TEXT = "//div[@class='billing-info']//li[@class='city-state-zip']";
+	public static final String ORDERS_BILLING_COUNTRY_TEXT = "//div[@class='billing-info']//li[@class='country']";
+	public static final String ORDERS_PAYMENT_METHOD_TEXT = "//li[@class='payment-method']/span[@class='value']";
+	public static final String ORDERS_PAYMENT_STATUS_TEXT = "//li[@class='payment-method-status']/span[@class='value']";
+	public static final String ORDERS_SHIPPING_NAME_TEXT = "//div[@class='shipping-info']//li[@class='name']";
+	public static final String ORDERS_SHIPPING_EMAIL_TEXT = "//div[@class='shipping-info']//li[@class='email']";
+	public static final String ORDERS_SHIPPING_PHONE_TEXT = "//div[@class='shipping-info']//li[@class='phone']";
+	public static final String ORDERS_SHIPPING_FAX_TEXT = "//div[@class='shipping-info']//li[@class='fax']";
+	public static final String ORDERS_SHIPPING_COMPANY_TEXT = "//div[@class='shipping-info']//li[@class='company']";
+	public static final String ORDERS_SHIPPING_ADDRESS_1_TEXT = "//div[@class='shipping-info']//li[@class='address1']";
+	public static final String ORDERS_SHIPPING_CITY_STATE_ZIP_TEXT = "//div[@class='shipping-info']//li[@class='city-state-zip']";
+	public static final String ORDERS_SHIPPING_COUNTRY_TEXT = "//div[@class='shipping-info']//li[@class='country']";
+	public static final String ORDERS_SHIPPING_METHOD_TEXT = "//li[@class='shipping-method']/span[@class='value']";
+	public static final String ORDERS_SHIPPING_STATUS_TEXT = "//li[@class='shipping-status']/span[@class='value']";
+	public static final String ORDERS_SKU_TEXT = "//span[@class='sku-number']";
+	public static final String ORDERS_PRODUCT_NAME_TEXT = "//td[@class='product']//a";
+	public static final String ORDERS_UNIT_PRICE_TEXT = "//span[@class='product-unit-price']";
+	public static final String ORDERS_QUANTITY_TEXT = "//span[@class='product-quantity']";
+	public static final String ORDERS_SUB_TOTAL_TEXT = "//span[@class='product-subtotal']";
+	public static final String ORDERS_CART_OPTION_TEXT = "//div[@class='selected-checkout-attributes']";
+	public static final String ORDERS_ORDER_SUB_TOTAL_TEXT = "//tr[1]//td[@class='cart-total-right']/span";
+	public static final String ORDERS_SHIPPING_COST_TEXT = "//tr[2]//td[@class='cart-total-right']/span";
+	public static final String ORDERS_TAX_VALUE_TEXT = "//tr[3]//td[@class='cart-total-right']/span";
+	public static final String ORDERS_ORDER_TOTAL_TEXT = "//tr[4]//td[@class='cart-total-right']/span";
+	public static final String ORDERS_REORDER_BUTTON = "//button[text()='Re-order']";
 }
