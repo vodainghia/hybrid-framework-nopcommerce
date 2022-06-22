@@ -24,9 +24,9 @@ public class Order extends BaseTest {
     String expectedRam, expectedHdd, expectedOs, updatedProcessor, updatedRam, updatedHdd, updatedOs, productTitleLenovoPc;
     String productTitleMacBookPro, countryBilling, stateBilling, cityBilling, addressBilling, zipBilling, phoneNumberBilling;
     String firstNameShipping, lastNameShipping, emailShipping, countryShipping, stateShipping, cityShipping, addressShipping;
-    String zipShipping, phoneNumberShipping, expectedPaymentInfor, paymentMethodCheque, shippingMethod, expectedSku, expectedUnitPrice;
-    String expectedQuantity, expectedSubTotal, expectedCartOption, expectedOrderTotal, softMO, softAcrobat, softCommander;
-    String listExpectedAttributes, listUpdatedAttributes, orderNumber, orderDate, paymentMethodCredit;
+    String zipShipping, phoneNumberShipping, expectedPaymentInfor, paymentMethodCheque, shippingMethod, expectedSku;
+    String expectedUnitPrice, expectedQuantity, expectedSubTotal, expectedCartOption, expectedOrderTotal, softMO, softAcrobat;
+    String softCommander, listExpectedAttributes, listUpdatedAttributes, orderNumber, orderDate, paymentMethodCredit;
     String visaCreditCard, cardHolderName, cardNumber, expirationMonth, expirationYear, cardCode;
     String firstNameBillingNew, lastNameBillingNew, emailBillingNew, countryBillingNew, stateBillingNew, cityBillingNew;
     String addressBillingNew, zipBillingNew, phoneNumberBillingNew, firstNameShippingNew, lastNameShippingNew;

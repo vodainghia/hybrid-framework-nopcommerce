@@ -298,6 +298,11 @@ public class BasePage {
         action.sendKeys(getElement(driver, locator), key).perform();
     }
 
+    public void pressKeyToElement(WebDriver driver, String locator, Keys key, String... params) {
+        action = new Actions(driver);
+        action.sendKeys(getElement(driver, getDynamicLocator(locator, params)), key).perform();
+    }
+
     public Object executeForBrowser(WebDriver driver, String javaScript) {
         jsExecutor = (JavascriptExecutor) driver;
         return jsExecutor.executeScript(javaScript);

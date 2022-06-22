@@ -6,7 +6,7 @@ import commons.BasePage;
 import pageUIs.nopCommerce.LoginPageUI;
 
 public class LoginPageObject extends BasePage {
-	private WebDriver driver;
+	private final WebDriver driver;
 	
 	public LoginPageObject(WebDriver driver) {
 		this.driver = driver;

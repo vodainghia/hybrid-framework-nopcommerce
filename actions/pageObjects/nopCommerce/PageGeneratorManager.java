@@ -11,6 +11,8 @@ public class PageGeneratorManager {
     private static ProductPageObject productPage;
     private static WishListPageObject wishListPage;
     private static ShoppingCartPageObject shoppingCartPage;
+    private static AdminLoginPageObject adminLoginPage;
+    private static AdminHomePageObject adminHomePage;
 
     private PageGeneratorManager() {
     }
@@ -69,5 +71,19 @@ public class PageGeneratorManager {
             shoppingCartPage = new ShoppingCartPageObject(driver);
         }
         return shoppingCartPage;
+    }
+
+    public static AdminLoginPageObject getAdminLoginPage(WebDriver driver) {
+        if (adminLoginPage == null) {
+            adminLoginPage = new AdminLoginPageObject(driver);
+        }
+        return adminLoginPage;
+    }
+
+    public static AdminHomePageObject getAdminHomePage(WebDriver driver) {
+        if (adminHomePage == null) {
+            adminHomePage = new AdminHomePageObject(driver);
+        }
+        return adminHomePage;
     }
 }

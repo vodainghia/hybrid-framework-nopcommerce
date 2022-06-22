@@ -52,10 +52,11 @@ public class Login extends BaseTest {
 
 	@Test
 	public void Login_03_Unregister_Email() {
-		loginPage.enterToEmailTextbox(email);
-		loginPage.clickToLoginButton();
-		Assert.assertEquals(loginPage.getValidateErrorMessage(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
-	}
+        loginPage.enterToEmailTextbox(email);
+        loginPage.clickToLoginButton();
+        Assert.assertEquals(loginPage.getValidateErrorMessage(), "Login was unsuccessful. Please correct the " +
+                "errors and try again.\nNo customer account found");
+    }
 
 	@Test
 	public void Login_04_Empty_Password() {
@@ -72,26 +73,28 @@ public class Login extends BaseTest {
 		registerPage.clickToRegisterButton();
 		Assert.assertTrue(registerPage.isSuccessMessageDisplayed());
 
-		registerPage.openHeaderPageByName(driver, "Log out");
-		homePage = PageGeneratorManager.getHomePage(driver);
-		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
+        registerPage.openHeaderPageByName(driver, "Log out");
+        homePage = PageGeneratorManager.getHomePage(driver);
+        Assert.assertTrue(homePage.isHomePageSliderDisplayed());
 
-		homePage.openHeaderPageByName(driver, "Log in");
-		loginPage = PageGeneratorManager.getLoginPage(driver);
-		Assert.assertTrue(loginPage.isLoginPageTitleDisplayed());
+        homePage.openHeaderPageByName(driver, "Log in");
+        loginPage = PageGeneratorManager.getLoginPage(driver);
+        Assert.assertTrue(loginPage.isLoginPageTitleDisplayed());
 
-		loginPage.enterToEmailTextbox(email);
-		loginPage.clickToLoginButton();
-		Assert.assertEquals(loginPage.getValidateErrorMessage(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
-	}
+        loginPage.enterToEmailTextbox(email);
+        loginPage.clickToLoginButton();
+        Assert.assertEquals(loginPage.getValidateErrorMessage(), "Login was unsuccessful. Please correct the " +
+                "errors and try again.\nThe credentials provided are incorrect");
+    }
 
 	@Test
 	public void Login_05_Uncorrect_Password() {
-		loginPage.enterToEmailTextbox(email);
-		loginPage.enterToPasswordTextbox("123457");
-		loginPage.clickToLoginButton();
-		Assert.assertEquals(loginPage.getValidateErrorMessage(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
-	}
+        loginPage.enterToEmailTextbox(email);
+        loginPage.enterToPasswordTextbox("123457");
+        loginPage.clickToLoginButton();
+        Assert.assertEquals(loginPage.getValidateErrorMessage(), "Login was unsuccessful. Please correct the " +
+                "errors and try again.\nThe credentials provided are incorrect");
+    }
 
 	@Test
 	public void Login_06_Login_Successfully() {
